@@ -1,0 +1,34 @@
+.card {
+  text-align: center;
+  margin: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.search-button {
+  background-color: hotpink;
+  border-radius: 20px;
+  transition: all 200ms ease;
+  position: relative;
+}
+
+button.hover {
+  background-color: pink;
+}
+.form-group {
+  text-align: center;
+  margin: 0px;
+  display: inline;
+}
+
+div. {
+  position: relative;
+}
+
+.col {
+  font-size: 24px;
+  border: 1px;
+  display: block;
+}
+h1 h2 {
+  text-align: center;
+}
