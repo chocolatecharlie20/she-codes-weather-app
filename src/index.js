@@ -90,3 +90,7 @@ function convertToFahrenheit() {
   celsius.classList.remove("active-temp");
   fahrenheit.classList.add("active-temp");
 }
+let celsius = document.querySelector("a#celsius-link");
+let fahrenheit = document.querySelector("a#fahrenheit-link");
+celsius.addEventListener("click", convertToCelsius);
+fahrenheit.addEventListener("click", convertToFahrenheit);
