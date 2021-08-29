@@ -78,19 +78,23 @@ form.addEventListener("submit", handleSubmit);
 function convertToCelsius(event) {
   event.preventDefault();
   let temperature = currentTemperture;
-  document.querySelector("#temperature").innerHTML = temperature;
-  celsius.classList.add("active-temp");
-  fahrenheit.classList.remove("active-temp");
+  document.querySelector("#return-temperature").innerHTML = temperature;
+  celsius.classList.add("#return-temperature");
+  fahrenheit.classList.remove("#return-temperature");
 }
 
 function convertToFahrenheit() {
   let temperature = currentTemperture;
   temperature = Math.round((temperature * 9) / 5 + 32);
-  document.querySelector("#temperature").innerHTML = temperature;
-  celsius.classList.remove("active-temp");
-  fahrenheit.classList.add("active-temp");
+  document.querySelector("#return-temperature").innerHTML = temperature;
+  celsius.classList.remove("#return-temperature");
+  fahrenheit.classList.add("#return-temperature");
 }
 let celsius = document.querySelector("a#celsius-link");
 let fahrenheit = document.querySelector("a#fahrenheit-link");
 celsius.addEventListener("click", convertToCelsius);
 fahrenheit.addEventListener("click", convertToFahrenheit);
+let humidityElement = document.querySelector("#humidity");
+let windElement = document.querySelector("#wind");
+humidityElement.innerHTML = response.data.main.humidity;
+windElement.innerHTML = Math.round(response.data.wind.speed);
