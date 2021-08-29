@@ -81,26 +81,18 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperature = currentTemperture;
-  document.querySelector("#return-temperature").innerHTML = temperature;
-  celsius.classList.add("#return-temperature");
-  fahrenheit.classList.remove("#return-temperature");
-}
-
-function convertToFahrenheit() {
-  let temperature = currentTemperture;
-  temperature = Math.round((temperature * 9) / 5 + 32);
-  document.querySelector("#return-temperature").innerHTML = temperature;
-  celsius.classList.remove("#return-temperature");
-  fahrenheit.classList.add("#return-temperature");
-}
-let celsius = document.querySelector("#celsius-link");
-let fahrenheit = document.querySelector("#fahrenheit-link");
-celsius.addEventListener("click", convertToCelsius);
-fahrenheit.addEventListener("click", convertToFahrenheit);
 let humidityElement = document.querySelector("#humidity");
 let windElement = document.querySelector("#wind");
+celsiusTemperature = response.data.main.temp;
+
+temperatureElement.innerHTML = Math.round(celsiusTemperature);
+cityElement.innerHTML = response.data.name;
+descriptionElement.innerHTML = response.data.weather[0].description;
 humidityElement.innerHTML = response.data.main.humidity;
 windElement.innerHTML = Math.round(response.data.wind.speed);
+dateElement.innerHTML = formatDate(response.data.dt * 1000);
+iconElement.setAttribute(
+  "src",
+  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+);
+iconElement.setAttribute("alt", response.data.weather[0].description);
