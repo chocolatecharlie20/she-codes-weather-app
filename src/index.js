@@ -74,3 +74,19 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperature = currentTemperture;
+  document.querySelector("#temperature").innerHTML = temperature;
+  celsius.classList.add("active-temp");
+  fahrenheit.classList.remove("active-temp");
+}
+
+function convertToFahrenheit() {
+  let temperature = currentTemperture;
+  temperature = Math.round((temperature * 9) / 5 + 32);
+  document.querySelector("#temperature").innerHTML = temperature;
+  celsius.classList.remove("active-temp");
+  fahrenheit.classList.add("active-temp");
+}
