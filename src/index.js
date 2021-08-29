@@ -96,8 +96,8 @@ function convertToFahrenheit() {
   celsius.classList.remove("#return-temperature");
   fahrenheit.classList.add("#return-temperature");
 }
-let celsius = document.querySelector("a#celsius-link");
-let fahrenheit = document.querySelector("a#fahrenheit-link");
+let celsius = document.querySelector("#celsius-link");
+let fahrenheit = document.querySelector("#fahrenheit-link");
 celsius.addEventListener("click", convertToCelsius);
 fahrenheit.addEventListener("click", convertToFahrenheit);
 let humidityElement = document.querySelector("#humidity");
