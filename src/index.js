@@ -1,3 +1,4 @@
+//time and date
 let now = new Date();
 
 let date = document.querySelector(".date");
@@ -35,6 +36,8 @@ if (minutes < 10) {
 
 time.innerHTML = `${hour}:${minutes}`;
 
+//city search
+
 function search(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#return-city");
@@ -44,7 +47,7 @@ function search(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-//week 5 homework
+// show temperature
 
 function showTemp(response) {
   console.log("Hello");
@@ -59,7 +62,7 @@ function showTemp(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-
+// search city
 function searchCity(city) {
   console.log("Hello1");
   let apiKey = "236daf43cfa87f4a3d255a019e6a6877";
@@ -110,9 +113,18 @@ function displayTemperature(response) {
 
   getForecast(response.data.coord);
 }
-//
+//celcius to farenheit change
+
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
