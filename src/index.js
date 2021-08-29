@@ -50,7 +50,7 @@ function showTemp(response) {
   console.log("Hello");
   let temperature = Math.round(response.data.main.temp);
   console.log(temperature);
-  let currentTemperature = document.querySelector("#return-temperature");
+  let currentTemperature = document.querySelector("#temperature");
   currentTemperature.innerHTML = `${temperature}`;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
