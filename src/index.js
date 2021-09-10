@@ -61,6 +61,7 @@ function showTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  celsiusTemperature = temperature;
 }
 // search city
 function searchCity(city) {
@@ -86,7 +87,7 @@ form.addEventListener("submit", handleSubmit);
 
 let humidityElement = document.querySelector("#humidity");
 let windElement = document.querySelector("#wind");
-celsiusTemperature = response.data.main.temp;
+// let celsiusTemperature = null;
 //
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -96,8 +97,6 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
-
-  celsiusTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.name;
@@ -128,3 +127,11 @@ function convertToFahrenheit(event) {
   let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
 }
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+searchCity("Chichester");
